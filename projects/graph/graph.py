@@ -75,7 +75,15 @@ class Graph:
             print(vertex)
             for next_vert in self.vertices[vertex]:
                 self.dft_recursive(next_vert, visited)
-                
+        
+        # # Class Solution
+        # self, staring_vertex, visited=None
+        # if visited is None:
+        #     visited = set()
+        # for child_vertex in self.vertices[starting_vertex]:
+        #     if child_vertex not in visited:
+        #         self.dft_recursive(child_vertex, visited)
+        
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
@@ -86,25 +94,41 @@ class Graph:
         visited = []
         for vertex in self.vertices:
             unvisted = vertex
-        
+
         starting_vertex.color = "gray"
         queue.enqueue(starting_vertex)
-        
+
         while queue.size() > 0:
             visiting = queue[0]
             path = queue.dequeue()
             back_path = path[-1]
-            
+
             if visiting == destination_vertex:
                 return path
-            
+
             for vertex in self.vertices[back_path]:
                 if vertex.color == "white":
                     vertex.color = "gray"
                     queue.enqueue(vertex)
-                    
+
             visited.append()
-            
+        
+        # # Class Solution
+        # queue = Queue()
+        # visited = set()
+        # queue.enqueue([starting_vertex])
+        # while queue.size() > 0:
+        #     path = queue.dequeue()
+        #     vertex = path[-1]
+        #     if visited not in visited:
+        #         # here is the point to do whatever is we are trying to accomplish
+        #         if vertex == destination_vertex:
+        #             return path
+        #         visited.add(vertex)
+        #         for next_vert in self.vertices[vertex]:
+        #             new_path = list(path)
+        #             new_path.append(next_vert)
+        #             queue.enqueue(new_path)
             
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -112,7 +136,22 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        # # Class Solution
+        # stack = Stack()
+        # visited = set()
+        # stack.push([starting_vertex])
+        # while stack.size() > 0:
+        #     path = stack.pop()
+        #     vertex = path[-1]
+        #     if visited not in visited:
+        #         # here is the point to do whatever is we are trying to accomplish
+        #         if vertex == destination_vertex:
+        #             return path
+        #         visited.add(vertex)
+        #         for next_vert in self.vertices[vertex]:
+        #             new_path = list(path)
+        #             new_path.append(next_vert)
+        #             stack.push(new_path)
 
 
 
