@@ -25,8 +25,9 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        # create empty queue
+        # create empty queue and enqueue starting vertex id
         q = Queue()
+        q.enqueue(starting_vertex)
         # create empty set for visited verticies
         visited = set()
         # while queue is not empty
@@ -47,8 +48,9 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        # create empty stack
+        # create empty stack and push starting vertex id
         s = Stack()
+        s.push(starting_vertex)
         # create empty set for visited verticies
         visited = set()
         # while stack is not empty
@@ -150,17 +152,17 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
-    graph.dft_recursive(1)
+    # graph.dft_recursive(1)
 
     '''
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    print(graph.bfs(1, 6))
+    # print(graph.bfs(1, 6))
 
     '''
     Valid DFS paths:
         [1, 2, 4, 6]
         [1, 2, 4, 7, 6]
     '''
-    print(graph.dfs(1, 6))
+    # print(graph.dfs(1, 6))
