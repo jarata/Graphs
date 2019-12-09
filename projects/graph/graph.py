@@ -16,19 +16,56 @@ class Graph:
         """
         Add a directed edge to the graph.
         """
-        pass  # TODO
+        if v1 in self.vertices and v2 in self.vertices:
+            self.vertices[v1].add(v2)
+        else:
+            raise IndexError("That vertex does not exist.")
     def bft(self, starting_vertex):
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # create empty queue and enqueue starting vertex id
+        q = Queue()
+        q.enqueue(starting_vertex)
+        # create empty set for visited verticies
+        visited = set()
+        # while queue is not empty
+        while q.size() > 0:
+            # dequeue first vertex
+            v = q.dequeue()
+            # if that vertex has not been visited...
+            if v not in visited:
+                # mark it visited
+                print("visited", v)
+                visited.add(v)
+                # the add all of its neighors to the back of the queue
+                for neighbor in self.vertices[v]:
+                    q.enqueue(neighbor)
+        
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # create empty stack and push starting vertex id
+        s = Stack()
+        s.push(starting_vertex)
+        # create empty set for visited verticies
+        visited = set()
+        # while stack is not empty
+        while s.size() > 0:
+            # pop first vertex
+            v = s.pop()
+            # if that vertex has not been visited...
+            if v not in visited:
+                # mark it visited
+                print("visted", v)
+                visited.add(v)
+                # the add all of its neighors to the top of the stack
+                for neighbor in self.vertices[v]:
+                    s.push(neighbor)
+        
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
@@ -115,17 +152,17 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
-    graph.dft_recursive(1)
+    # graph.dft_recursive(1)
 
     '''
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    print(graph.bfs(1, 6))
+    # print(graph.bfs(1, 6))
 
     '''
     Valid DFS paths:
         [1, 2, 4, 6]
         [1, 2, 4, 7, 6]
     '''
-    print(graph.dfs(1, 6))
+    # print(graph.dfs(1, 6))
