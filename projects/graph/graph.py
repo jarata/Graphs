@@ -26,12 +26,21 @@ class Graph:
         beginning from starting_vertex.
         """
         # create empty queue
+        q = Queue()
         # create empty set for visited verticies
+        visited = set()
         # while queue is not empty
+        while q.size() > 0:
             # dequeue first vertex
+            v = q.dequeue()
             # if that vertex has not been visited...
+            if v not in visited:
                 # mark it visited
+                print("visited", v)
+                visited.add(v)
                 # the add all of its neighors to the back of the queue
+                for neighbor in self.vertices[v]:
+                    q.enqueue(neighbor)
         
     def dft(self, starting_vertex):
         """
