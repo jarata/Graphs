@@ -47,7 +47,14 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # create empty stack
+        # create empty set for visited verticies
+        # while stack is not empty
+            # pop first vertex
+            # if that vertex has not been visited...
+                # mark it visited
+                # the add all of its neighors to the top of the stack
+        
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
